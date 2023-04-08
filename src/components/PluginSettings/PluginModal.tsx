@@ -184,8 +184,9 @@ export default function PluginModal({ plugin, onRestartNeeded, onClose, transiti
                 <Forms.FormSection>
                     <Forms.FormTitle tag="h3">About {plugin.name}</Forms.FormTitle>
                     <Forms.FormText>{plugin.description}</Forms.FormText>
-                    <Forms.FormTitle tag="h3" style={{ marginTop: 8, marginBottom: 0 }}>Authors</Forms.FormTitle>
-                    <div style={{ width: "fit-content", marginBottom: 8 }}>
+                    <Forms.FormDivider style={{ margin: "16px 0" }} />;
+                    <Forms.FormTitle tag="h3">Author(s)</Forms.FormTitle>
+                    <div style={{ width: "fit-content", margin: "8px 0" }}>
                         <UserSummaryItem
                             users={authors}
                             count={plugin.authors.length}
@@ -197,12 +198,14 @@ export default function PluginModal({ plugin, onRestartNeeded, onClose, transiti
                             renderMoreUsers={renderMoreUsers}
                         />
                     </div>
+                    <Forms.FormDivider style={{ margin: "16px 0" }} />;
                 </Forms.FormSection>
                 {!!plugin.settingsAboutComponent && (
                     <div style={{ marginBottom: 8 }}>
                         <Forms.FormSection>
                             <ErrorBoundary message="An error occurred while rendering this plugin's custom InfoComponent">
                                 <plugin.settingsAboutComponent tempSettings={tempSettings} />
+                                <Forms.FormDivider style={{ margin: "16px 0" }} />;
                             </ErrorBoundary>
                         </Forms.FormSection>
                     </div>
