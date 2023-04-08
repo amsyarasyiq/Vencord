@@ -50,8 +50,7 @@ export function SettingSliderComponent({ option, pluginSettings, definedSettings
     }
 
     return (
-        <Forms.FormSection className={Margins.bottom16}>
-            <Forms.FormTitle>{option.description}</Forms.FormTitle>
+        <Forms.FormSection title={option.description} className={Margins.bottom16}>
             <Slider
                 disabled={option.disabled?.call(definedSettings) ?? false}
                 markers={option.markers}
