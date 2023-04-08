@@ -198,16 +198,16 @@ export default function PluginModal({ plugin, onRestartNeeded, onClose, transiti
                             renderMoreUsers={renderMoreUsers}
                         />
                     </div>
-                    <Forms.FormDivider style={{ margin: "16px 0" }} />;
                 </Forms.FormSection>
+                <Forms.FormDivider style={{ margin: "16px 0" }} />
                 {!!plugin.settingsAboutComponent && (
                     <div style={{ marginBottom: 8 }}>
                         <Forms.FormSection>
                             <ErrorBoundary message="An error occurred while rendering this plugin's custom InfoComponent">
                                 <plugin.settingsAboutComponent tempSettings={tempSettings} />
-                                <Forms.FormDivider style={{ margin: "16px 0" }} />;
                             </ErrorBoundary>
                         </Forms.FormSection>
+                        <Forms.FormDivider style={{ margin: "16px 0" }} />;
                     </div>
                 )}
                 <Forms.FormSection>
