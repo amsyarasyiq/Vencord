@@ -16,6 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+import { Margins } from "@utils/margins";
 import { PluginOptionString } from "@utils/types";
 import { Forms, React, TextInput } from "@webpack/common";
 
@@ -41,8 +42,7 @@ export function SettingTextComponent({ option, pluginSettings, definedSettings, 
     }
 
     return (
-        <Forms.FormSection>
-            <Forms.FormTitle>{option.description}</Forms.FormTitle>
+        <Forms.FormSection title={option.description} className={Margins.bottom16}>
             <TextInput
                 type="text"
                 value={state}

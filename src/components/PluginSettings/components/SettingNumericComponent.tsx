@@ -16,6 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+import { Margins } from "@utils/margins";
 import { OptionType, PluginOptionNumber } from "@utils/types";
 import { Forms, React, TextInput } from "@webpack/common";
 
@@ -53,8 +54,7 @@ export function SettingNumericComponent({ option, pluginSettings, definedSetting
     }
 
     return (
-        <Forms.FormSection>
-            <Forms.FormTitle>{option.description}</Forms.FormTitle>
+        <Forms.FormSection title={option.description} className={Margins.bottom16}>
             <TextInput
                 type="number"
                 pattern="-?[0-9]+"

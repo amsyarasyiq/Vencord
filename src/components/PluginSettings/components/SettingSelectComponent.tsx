@@ -16,6 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+import { Margins } from "@utils/margins";
 import { PluginOptionSelect } from "@utils/types";
 import { Forms, React, Select } from "@webpack/common";
 
@@ -43,8 +44,7 @@ export function SettingSelectComponent({ option, pluginSettings, definedSettings
     }
 
     return (
-        <Forms.FormSection>
-            <Forms.FormTitle>{option.description}</Forms.FormTitle>
+        <Forms.FormSection title={option.description} className={Margins.bottom16}>
             <Select
                 isDisabled={option.disabled?.call(definedSettings) ?? false}
                 options={option.options}

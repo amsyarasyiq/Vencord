@@ -17,24 +17,19 @@
 */
 
 import { PluginOptionBoolean } from "@utils/types";
-import { Forms, React, Select } from "@webpack/common";
+import { Forms, React, Switch } from "@webpack/common";
 
 import { ISettingElementProps } from ".";
 
 export function SettingBooleanComponent({ option, pluginSettings, definedSettings, id, onChange, onError }: ISettingElementProps<PluginOptionBoolean>) {
     const def = pluginSettings[id] ?? option.default;
 
-    const [state, setState] = React.useState(def ?? false);
+    const [state, setState] = React.useState<boolean>(def ?? false);
     const [error, setError] = React.useState<string | null>(null);
 
     React.useEffect(() => {
         onError(error !== null);
     }, [error]);
-
-    const options = [
-        { label: "Enabled", value: true, default: def === true },
-        { label: "Disabled", value: false, default: typeof def === "undefined" || def === false },
-    ];
 
     function handleChange(newValue: boolean): void {
         const isValid = option.isValid?.call(definedSettings, newValue) ?? true;
@@ -48,21 +43,15 @@ export function SettingBooleanComponent({ option, pluginSettings, definedSetting
     }
 
     return (
-        <Forms.FormSection>
-            <Forms.FormTitle>{option.description}</Forms.FormTitle>
-            <Select
-                isDisabled={option.disabled?.call(definedSettings) ?? false}
-                options={options}
-                placeholder={option.placeholder ?? "Select an option"}
-                maxVisibleItems={5}
-                closeOnSelect={true}
-                select={handleChange}
-                isSelected={v => v === state}
-                serialize={v => String(v)}
-                {...option.componentProps}
-            />
-            {error && <Forms.FormText style={{ color: "var(--text-danger)" }}>{error}</Forms.FormText>}
-        </Forms.FormSection>
+        <Switch hideBorder
+            value={state}
+            disabled={option.disabled?.call(definedSettings) ?? false}
+            onChange={handleChange}
+            note={error && <Forms.FormText style={{ color: "var(--text-danger)" }}>{error}</Forms.FormText>}
+            {...option.componentProps}
+        >
+            {option.description}
+        </Switch>
     );
 }
 

@@ -16,6 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+import { Margins } from "@utils/margins";
 import { PluginOptionSlider } from "@utils/types";
 import { Forms, React, Slider } from "@webpack/common";
 
@@ -49,7 +50,7 @@ export function SettingSliderComponent({ option, pluginSettings, definedSettings
     }
 
     return (
-        <Forms.FormSection>
+        <Forms.FormSection className={Margins.bottom16}>
             <Forms.FormTitle>{option.description}</Forms.FormTitle>
             <Slider
                 disabled={option.disabled?.call(definedSettings) ?? false}

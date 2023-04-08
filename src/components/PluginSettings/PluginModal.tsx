@@ -20,6 +20,7 @@ import { generateId } from "@api/Commands";
 import { useSettings } from "@api/settings";
 import ErrorBoundary from "@components/ErrorBoundary";
 import { Flex } from "@components/Flex";
+import { Margins } from "@utils/margins";
 import { LazyComponent } from "@utils/misc";
 import { ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalProps, ModalRoot, ModalSize } from "@utils/modal";
 import { proxyLazy } from "@utils/proxyLazy";
@@ -149,7 +150,7 @@ export default function PluginModal({ plugin, onRestartNeeded, onClose, transiti
                 );
             });
 
-            return <Flex flexDirection="column" style={{ gap: 12 }}>{options}</Flex>;
+            return <Forms.FormSection className={Margins.top16}>{options}</Forms.FormSection>;
         }
     }
 
