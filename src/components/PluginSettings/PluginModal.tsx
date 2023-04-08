@@ -184,7 +184,7 @@ export default function PluginModal({ plugin, onRestartNeeded, onClose, transiti
                 <Forms.FormSection>
                     <Forms.FormTitle tag="h3">About {plugin.name}</Forms.FormTitle>
                     <Forms.FormText>{plugin.description}</Forms.FormText>
-                    <Forms.FormDivider style={{ margin: "16px 0" }} />;
+                    <Forms.FormDivider style={{ margin: "16px 0" }} />
                     <Forms.FormTitle tag="h3">Author(s)</Forms.FormTitle>
                     <div style={{ width: "fit-content", margin: "8px 0" }}>
                         <UserSummaryItem
@@ -207,7 +207,7 @@ export default function PluginModal({ plugin, onRestartNeeded, onClose, transiti
                                 <plugin.settingsAboutComponent tempSettings={tempSettings} />
                             </ErrorBoundary>
                         </Forms.FormSection>
-                        <Forms.FormDivider style={{ margin: "16px 0" }} />;
+                        <Forms.FormDivider style={{ margin: "16px 0" }} />
                     </div>
                 )}
                 <Forms.FormSection>
